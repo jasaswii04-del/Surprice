@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff4e8a,#7b2ff7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* LOGIN PAGE */
+
+#loginPage{
+    text-align:center;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:25px;
+    color:white;
+    width:350px;
+}
+
+#loginPage h1{
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    margin:15px 0;
+    outline:none;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:white;
+    color:#ff0080;
+    font-weight:bold;
+}
+
+/* BIRTHDAY PAGE */
+
+#wishPage{
+    display:none;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+#wishPage h1{
+    font-size:50px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px white;
+    }
+    to{
+        text-shadow:0 0 30px yellow;
+    }
+}
+
+.message{
+    margin-top:20px;
+    max-width:700px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.quote{
+    margin-top:20px;
+    font-style:italic;
+    font-size:18px;
+}
+
+.song-btn{
+    margin-top:25px;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage">
+
+
+<h1>🔒 Secret Birthday Portal</h1>
+
+<p>Enter Your Secret Code</p>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="checkPassword()">
+    Open Surprise 🎁
+</button>
+
+
+</div>
+
+<!-- BIRTHDAY PAGE -->
+
+<div id="wishPage">
+
+<h1>🎂 Happy Birthday Yohii ❤️</h1>
+
+<p class="message">
+    Happy Birthday to the most amazing person
+    in my life. Thank you for all the memories,
+    support, laughter and happiness.
+    May all your dreams come true.
+    Stay happy and keep smiling forever. ❤️✨
+</p>
+
+<br>
+
+<button onclick="window.location.href='https://www.youtube.com/shorts/h1jYyr715vI?t=15&feature=share'">
+🎵 Play Song
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function checkPassword(){
+
+    let pass =
+    document.getElementById("password").value;
+
+    if(pass === "2004"){
+
+        document.getElementById("loginPage")
+        .style.display="none";
+
+        document.getElementById("wishPage")
+        .style.display="block";
+
+        startHearts();
+
+    }else{
+
+        alert("❌ Wrong Password");
+
+    }
+}
+
+function startHearts(){
+
+    setInterval(()=>{
+
+        const heart =
+        document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=
+        Math.random()*100+"vw";
+
+        heart.style.fontSize=
+        (20+Math.random()*30)+"px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },6000);
+
+    },300);
+}
+function playSong() {
+    document.getElementById("player").innerHTML =
+    `<iframe
+        width="300"
+        height="170"
+        src="https://www.youtube.com/shorts/h1jYyr715vI?t=15&feature=share"
+        allow="autoplay"
+        allowfullscreen>
+    </iframe>`;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+    
